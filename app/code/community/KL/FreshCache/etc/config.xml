@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <KL_FreshCache>
+            <version>0.0.1</version>
+        </KL_FreshCache>
+    </modules>
+    <global>
+        <helpers>
+            <freshcache>
+                <class>KL_FreshCache_Helper</class>
+            </freshcache>
+        </helpers>
+        <models>
+            <freshcache>
+                <class>KL_FreshCache_Model</class>
+                <resourceModel>freshcache_mysql4</resourceModel>
+            </freshcache>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <freshcache_refreshcache>
+                <schedule>
+                    <cron_expr>*/5 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>freshcache/cron::refreshCache</model>
+                </run>
+            </freshcache_refreshcache>
+        </jobs>
+    </crontab>
+</config> 
